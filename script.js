@@ -12,30 +12,32 @@
         const password = document.getElementById("password").value.trim();
 
         // initialise validation variables
-        let isvalid = true;
-        const mesages = [];
+        let isValid = true;
+        const messages = [];
         // username validation
         if (username.length < 3) {
-            isvalid = false;
-            mesages.push("Username must be at least 3 characters long.");
+            isValid = false;
+            messages.push("Username must be at least 3 characters long.");
         }
         // email validation
         if (!email.includes("@") || !email.includes(".")) {
-            isvalid = false;
-            mesages.push("Please enter a valid email address.");
+            isValid = false;
+            messages.push("Please enter a valid email address.");
         }
         // password validation
         if (password.length < 8) {
-            isvalid = false;
-            mesages.push("Password must be at least 8 characters long.");
+            isValid = false;
+            messages.push("Password must be at least 8 characters long.");
         }
         // display feedback
         feedbackDiv.style.display = "block";
-        if (isvalid) {
+        if (isValid) {
             feedbackDiv.textContent = "Registration successful!";
             feedbackDiv.style.color = "28a745";
         } else {
-            feedbackDiv.innerHTML = mesages.join("<br>");
+            feedbackDiv.innerHTML = messages.join("<br>");
             feedbackDiv.style.color = "#dc3545";
         }
+        });
+    }); 
 </script>
